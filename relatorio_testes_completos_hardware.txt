@@ -1,0 +1,171 @@
+====================================================================================================
+  RELATÓRIO COMPLETO DE TESTES DE HARDWARE AO VIVO — HENRY PRIMME SF
+  Data/Hora do Teste: 27/07/2026 01:32:59
+  Equipamento Alvo: 192.168.0.179:3000
+====================================================================================================
+
+--- [01] CMD 01 - Ler Data e Hora Actual ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RH+00
+  • Hex Dump Enviado:    02 08 00 30 31 2B 52 48 2B 30 30 13 03
+  • Hex Dump Retornado:  02 2D 00 30 31 2B 52 48 2B 30 30 30 2B 32 37 2F 30 37 2F 32 36 20 30 31 3A 33 33 3A 30 30 5D 30 30 2F 30 30 2F 30 30 5D 30 30 2F 30 30 2F 30 30 0A 03
+  • Payload ASCII Retornado: 01+RH+000+27/07/26 01:33:00]00/00/00]00/00/00
+  --------------------------------------------------------------------------------
+--- [02] CMD 02 - Sincronizar Data e Hora ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EH+00+27/07/26 01:32:59]00/00/00]00/00/00
+  • Hex Dump Enviado:    02 2C 00 30 31 2B 45 48 2B 30 30 2B 32 37 2F 30 37 2F 32 36 20 30 31 3A 33 32 3A 35 39 5D 30 30 2F 30 30 2F 30 30 5D 30 30 2F 30 30 2F 30 30 21 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 45 48 2B 30 30 30 35 03
+  • Payload ASCII Retornado: 01+EH+000
+  --------------------------------------------------------------------------------
+--- [03] CMD 03 - Consultar Quantidade de Usuários ---
+  • Status: ⚠ RESPOSTA/ERRO
+  • Comando ASCII Enviado: 01+QU+00
+  • Hex Dump Enviado:    02 08 00 30 31 2B 51 55 2B 30 30 0D 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 51 55 2B 30 31 30 3D 03
+  • Payload ASCII Retornado: 01+QU+010
+  --------------------------------------------------------------------------------
+--- [04] CMD 04 - Status Qtd Usuários (RQ+U) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RQ+00+U
+  • Hex Dump Enviado:    02 0A 00 30 31 2B 52 51 2B 30 30 2B 55 76 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 52 51 2B 30 30 30 3B 03
+  • Payload ASCII Retornado: 01+RQ+000
+  --------------------------------------------------------------------------------
+--- [05] CMD 05 - Status Qtd Digitais Biométricas (RQ+D) ---
+  • Status: ⚠ RESPOSTA/ERRO
+  • Comando ASCII Enviado: 01+RQ+00+D
+  • Hex Dump Enviado:    02 0A 00 30 31 2B 52 51 2B 30 30 2B 44 67 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 52 51 2B 30 32 35 3C 03
+  • Payload ASCII Retornado: 01+RQ+025
+  --------------------------------------------------------------------------------
+--- [06] CMD 06 - Status Qtd Registros Eventos (RQ+R) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RQ+00+R
+  • Hex Dump Enviado:    02 0A 00 30 31 2B 52 51 2B 30 30 2B 52 71 03
+  • Hex Dump Retornado:  02 11 00 30 31 2B 52 51 2B 30 30 30 2B 52 5D 36 30 34 33 37 31 03
+  • Payload ASCII Retornado: 01+RQ+000+R]60437
+  --------------------------------------------------------------------------------
+--- [07] CMD 07 - Status Registros Não Coletados (RQ+RNC) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RQ+00+RNC
+  • Hex Dump Enviado:    02 0C 00 30 31 2B 52 51 2B 30 30 2B 52 4E 43 7A 03
+  • Hex Dump Retornado:  02 13 00 30 31 2B 52 51 2B 30 30 30 2B 52 4E 43 5D 36 30 34 33 37 3E 03
+  • Payload ASCII Retornado: 01+RQ+000+RNC]60437
+  --------------------------------------------------------------------------------
+--- [08] CMD 08 - Status Bloqueio Catraca (RQ+TP) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RQ+00+TP
+  • Hex Dump Enviado:    02 0B 00 30 31 2B 52 51 2B 30 30 2B 54 50 26 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 52 51 2B 30 30 30 3B 03
+  • Payload ASCII Retornado: 01+RQ+000
+  --------------------------------------------------------------------------------
+--- [09] CMD 09 - Inserir Usuário de Teste ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EU+00+1+I[999888[TESTE COMPLETO GITHUB[[1[999888
+  • Hex Dump Enviado:    02 33 00 30 31 2B 45 55 2B 30 30 2B 31 2B 49 5B 39 39 39 38 38 38 5B 54 45 53 54 45 20 43 4F 4D 50 4C 45 54 4F 20 47 49 54 48 55 42 5B 5B 31 5B 39 39 39 38 38 38 65 03
+  • Hex Dump Retornado:  02 0D 00 30 31 2B 45 55 2B 30 30 30 2B 31 2B 30 2D 03
+  • Payload ASCII Retornado: 01+EU+000+1+0
+  --------------------------------------------------------------------------------
+--- [10] CMD 10 - Alterar Usuário de Teste ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EU+00+1+A[999888[TESTE ALTERADO GITHUB[[1[999888
+  • Hex Dump Enviado:    02 33 00 30 31 2B 45 55 2B 30 30 2B 31 2B 41 5B 39 39 39 38 38 38 5B 54 45 53 54 45 20 41 4C 54 45 52 41 44 4F 20 47 49 54 48 55 42 5B 5B 31 5B 39 39 39 38 38 38 6A 03
+  • Hex Dump Retornado:  02 0D 00 30 31 2B 45 55 2B 30 30 30 2B 31 2B 30 2D 03
+  • Payload ASCII Retornado: 01+EU+000+1+0
+  --------------------------------------------------------------------------------
+--- [11] CMD 11 - Listar Usuários da Memória Flash ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RU+00+5]0
+  • Hex Dump Enviado:    02 0C 00 30 31 2B 52 55 2B 30 30 2B 35 5D 30 79 03
+  • Hex Dump Retornado:  02 8F 00 30 31 2B 52 55 2B 30 30 30 2B 32 2B 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 39 39 39 39 5B 54 45 53 54 45 20 47 49 54 48 55 42 20 4E 4F 56 41 20 50 41 5B 5B 31 5B 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 30 39 39 39 39 5D 30 30 30 30 30 30 30 30 30 30 30 30 30 30 39 39 39 38 38 38 5B 54 45 53 54 45 20 41 4C 54 45 52 41 44 4F 20 47 49 54 48 55 5B 5B 31 5B 30 30 30 30 30 30 30 30 30 30 30 30 30 30 39 39 39 38 38 38 B7 03
+  • Payload ASCII Retornado: 01+RU+000+2+00000000000000009999[TESTE GITHUB NOVA PA[[1[00000000000000009999]00000000000000999888[TESTE ALTERADO GITHU[[1[00000000000000999888
+  --------------------------------------------------------------------------------
+--- [12] CMD 12 - Remover Usuário de Teste ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EU+00+1+E[999888
+  • Hex Dump Enviado:    02 13 00 30 31 2B 45 55 2B 30 30 2B 31 2B 45 5B 39 39 39 38 38 38 2C 03
+  • Hex Dump Retornado:  02 0E 00 30 31 2B 45 55 2B 30 30 30 2B 31 2B 31 32 1D 03
+  • Payload ASCII Retornado: 01+EU+000+1+12
+  --------------------------------------------------------------------------------
+--- [13] CMD 13 - Liberar Giro Entrada Catraca (cod. 5) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+REON+00+5]5]Acesso Liberado}Seja Bem-vindo]1
+  • Hex Dump Enviado:    02 2F 00 30 31 2B 52 45 4F 4E 2B 30 30 2B 35 5D 35 5D 41 63 65 73 73 6F 20 4C 69 62 65 72 61 64 6F 7D 53 65 6A 61 20 42 65 6D 2D 76 69 6E 64 6F 5D 31 30 03
+  • Hex Dump Retornado:  02 29 00 30 31 2B 52 45 4F 4E 2B 30 30 30 2B 38 30 5D 5D 32 37 2F 30 37 2F 32 30 32 36 20 30 31 3A 33 33 3A 31 34 5D 30 5D 30 5D 30 60 03
+  • Payload ASCII Retornado: 01+REON+000+80]]27/07/2026 01:33:14]0]0]0
+  --------------------------------------------------------------------------------
+--- [14] CMD 14 - Liberar Giro Saída Catraca (cod. 6) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+REON+00+6]5]Saida Liberada}Ate Logo]1
+  • Hex Dump Enviado:    02 28 00 30 31 2B 52 45 4F 4E 2B 30 30 2B 36 5D 35 5D 53 61 69 64 61 20 4C 69 62 65 72 61 64 61 7D 41 74 65 20 4C 6F 67 6F 5D 31 17 03
+  • Hex Dump Retornado:  02 29 00 30 31 2B 52 45 4F 4E 2B 30 30 30 2B 38 30 5D 5D 32 37 2F 30 37 2F 32 30 32 36 20 30 31 3A 33 33 3A 31 36 5D 30 5D 30 5D 30 62 03
+  • Payload ASCII Retornado: 01+REON+000+80]]27/07/2026 01:33:16]0]0]0
+  --------------------------------------------------------------------------------
+--- [15] CMD 15 - Liberar Porta / Relé 1 (cod. 1) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+REON+00+1]4]Porta Liberada}Seja Bem-vindo]1
+  • Hex Dump Enviado:    02 2E 00 30 31 2B 52 45 4F 4E 2B 30 30 2B 31 5D 34 5D 50 6F 72 74 61 20 4C 69 62 65 72 61 64 61 7D 53 65 6A 61 20 42 65 6D 2D 76 69 6E 64 6F 5D 31 4A 03
+  • Hex Dump Retornado:  02 29 00 30 31 2B 52 45 4F 4E 2B 30 30 30 2B 38 30 5D 5D 32 37 2F 30 37 2F 32 30 32 36 20 30 31 3A 33 33 3A 31 38 5D 30 5D 30 5D 30 6C 03
+  • Payload ASCII Retornado: 01+REON+000+80]]27/07/2026 01:33:18]0]0]0
+  --------------------------------------------------------------------------------
+--- [16] CMD 16 - Enviar Acesso Negado / Display (cod. 30) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+REON+00+30]5]Acesso Negado}Cartao Invalido]1
+  • Hex Dump Enviado:    02 2F 00 30 31 2B 52 45 4F 4E 2B 30 30 2B 33 30 5D 35 5D 41 63 65 73 73 6F 20 4E 65 67 61 64 6F 7D 43 61 72 74 61 6F 20 49 6E 76 61 6C 69 64 6F 5D 31 2E 03
+  • Hex Dump Retornado:  02 29 00 30 31 2B 52 45 4F 4E 2B 30 30 30 2B 33 30 5D 5D 32 37 2F 30 37 2F 32 30 32 36 20 30 31 3A 33 33 3A 32 31 5D 30 5D 30 5D 30 6D 03
+  • Payload ASCII Retornado: 01+REON+000+30]]27/07/2026 01:33:21]0]0]0
+  --------------------------------------------------------------------------------
+--- [17] CMD 17 - Ler Configurações Principais (RC) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RC+00+IP]PORTA_TCP]MODE]DHCP]NOME_REDE]LEITOR_1]LEITOR_2]EXP_HABILITADO]EXP_TEMPO_LIBERACAO]EXP_CATRACA_INVERTIDA]EXP_TIPO_LIBERACAO]EXP_PICTOGRAMA]EXP_COFRE_HABILITADO
+  • Hex Dump Enviado:    02 AB 00 30 31 2B 52 43 2B 30 30 2B 49 50 5D 50 4F 52 54 41 5F 54 43 50 5D 4D 4F 44 45 5D 44 48 43 50 5D 4E 4F 4D 45 5F 52 45 44 45 5D 4C 45 49 54 4F 52 5F 31 5D 4C 45 49 54 4F 52 5F 32 5D 45 58 50 5F 48 41 42 49 4C 49 54 41 44 4F 5D 45 58 50 5F 54 45 4D 50 4F 5F 4C 49 42 45 52 41 43 41 4F 5D 45 58 50 5F 43 41 54 52 41 43 41 5F 49 4E 56 45 52 54 49 44 41 5D 45 58 50 5F 54 49 50 4F 5F 4C 49 42 45 52 41 43 41 4F 5D 45 58 50 5F 50 49 43 54 4F 47 52 41 4D 41 5D 45 58 50 5F 43 4F 46 52 45 5F 48 41 42 49 4C 49 54 41 44 4F 8A 03
+  • Hex Dump Retornado:  02 E9 00 30 31 2B 52 43 2B 30 30 30 2B 49 50 5B 31 39 32 2E 31 36 38 2E 30 30 30 2E 31 37 39 5D 50 4F 52 54 41 5F 54 43 50 5B 33 30 30 30 5D 4D 4F 44 45 5B 53 5D 44 48 43 50 5B 44 5D 4E 4F 4D 45 5F 52 45 44 45 5B 50 52 49 4D 4D 45 53 46 30 30 32 33 30 33 32 5D 4C 45 49 54 4F 52 5F 31 5B 4E 7D 42 5D 4C 45 49 54 4F 52 5F 32 5B 57 7D 45 5D 45 58 50 5F 48 41 42 49 4C 49 54 41 44 4F 5B 45 5D 45 58 50 5F 54 45 4D 50 4F 5F 4C 49 42 45 52 41 43 41 4F 5B 37 5D 45 58 50 5F 43 41 54 52 41 43 41 5F 49 4E 56 45 52 54 49 44 41 5B 48 5D 45 58 50 5F 54 49 50 4F 5F 4C 49 42 45 52 41 43 41 4F 5B 42 5D 45 58 50 5F 50 49 43 54 4F 47 52 41 4D 41 5B 48 5D 45 58 50 5F 43 4F 46 52 45 5F 48 41 42 49 4C 49 54 41 44 4F 5B 49 DF 03
+  • Payload ASCII Retornado: 01+RC+000+IP[192.168.000.179]PORTA_TCP[3000]MODE[S]DHCP[D]NOME_REDE[PRIMMESF0023032]LEITOR_1[N}B]LEITOR_2[W}E]EXP_HABILITADO[E]EXP_TEMPO_LIBERACAO[7]EXP_CATRACA_INVERTIDA[H]EXP_TIPO_LIBERACAO[B]EXP_PICTOGRAMA[H]EXP_COFRE_HABILITADO[I
+  --------------------------------------------------------------------------------
+--- [18] CMD 18 - Alterar Tempo de Giro (EC) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EC+00+EXP_TEMPO_LIBERACAO[7]
+  • Hex Dump Enviado:    02 1F 00 30 31 2B 45 43 2B 30 30 2B 45 58 50 5F 54 45 4D 50 4F 5F 4C 49 42 45 52 41 43 41 4F 5B 37 5D 50 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 45 43 2B 30 30 30 3E 03
+  • Payload ASCII Retornado: 01+EC+000
+  --------------------------------------------------------------------------------
+--- [19] CMD 19 - Ler Mensagens Fixas do Display (RMSG) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RMSG+00
+  • Hex Dump Enviado:    02 0A 00 30 31 2B 52 4D 53 47 2B 30 30 00 03
+  • Hex Dump Retornado:  02 2A 00 30 31 2B 52 4D 53 47 2B 30 30 30 2B 31 5B 5B 32 5B 45 4E 54 52 41 44 41 20 4F 4B 5B 31 5B 5B 32 5B 53 41 49 44 41 20 4F 4B 5B 2C 03
+  • Payload ASCII Retornado: 01+RMSG+000+1[[2[ENTRADA OK[1[[2[SAIDA OK[
+  --------------------------------------------------------------------------------
+--- [20] CMD 20 - Enviar Mensagens Standby Display (EMSG) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+EMSG+00+3[[0[[2[BEM VINDO[5[
+  • Hex Dump Enviado:    02 1F 00 30 31 2B 45 4D 53 47 2B 30 30 2B 33 5B 5B 30 5B 5B 32 5B 42 45 4D 20 56 49 4E 44 4F 5B 35 5B 46 03
+  • Hex Dump Retornado:  02 0B 00 30 31 2B 45 4D 53 47 2B 30 30 30 26 03
+  • Payload ASCII Retornado: 01+EMSG+000
+  --------------------------------------------------------------------------------
+--- [21] CMD 21 - Coletar Eventos Offline (RR) ---
+  • Status: ✔ SUCESSO
+  • Comando ASCII Enviado: 01+RR+00+C]00000001]5
+  • Hex Dump Enviado:    02 15 00 30 31 2B 52 52 2B 30 30 2B 43 5D 30 30 30 30 30 30 30 31 5D 35 48 03
+  • Hex Dump Retornado:  02 53 00 30 31 2B 52 52 2B 30 30 30 2B 30 30 30 30 31 2B 30 30 30 30 30 30 30 30 31 5B 30 38 31 5B 30 30 30 30 30 30 30 30 30 30 30 30 30 37 34 31 38 34 30 31 5B 30 34 2F 30 37 2F 32 30 32 33 20 31 33 3A 34 37 3A 35 38 5B 31 5B 30 7D 30 30 30 5B 30 32 5B 30 5D 03
+  • Payload ASCII Retornado: 01+RR+000+00001+000000001[081[00000000000007418401[04/07/2023 13:47:58[1[0}000[02[0
+  --------------------------------------------------------------------------------
+--- [22] CMD 22 - Ler Chave Pública RSA (RA) ---
+  • Status: ⚠ RESPOSTA/ERRO
+  • Comando ASCII Enviado: 01+RA+00
+  • Hex Dump Enviado:    02 08 00 30 31 2B 52 41 2B 30 30 1A 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 52 41 2B 30 31 30 2A 03
+  • Payload ASCII Retornado: 01+RA+010
+  --------------------------------------------------------------------------------
+--- [23] CMD 23 - Consultar Biometrias DSP (RD) ---
+  • Status: ⚠ RESPOSTA/ERRO
+  • Comando ASCII Enviado: 01+RD+00+5]0
+  • Hex Dump Enviado:    02 0C 00 30 31 2B 52 44 2B 30 30 2B 35 5D 30 68 03
+  • Hex Dump Retornado:  02 09 00 30 31 2B 52 44 2B 30 32 35 29 03
+  • Payload ASCII Retornado: 01+RD+025
+  --------------------------------------------------------------------------------
+
+====================================================================================================
+  RESUMO DA BATERIA: 19 de 23 comandos executados com retorno de SUCESSO/OK.
+====================================================================================================
